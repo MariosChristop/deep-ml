@@ -11,8 +11,6 @@ def transpose_matrix(a: list[list[int|float]]) -> list[list[int|float]]:
     """
     # Your code here
     a_np = np.array(a)
-    a_np_transpose = np.zeros(a_np.shape[::-1])
-    for i in range(a_np.shape[0]):
-        a_np_transpose[:,i] = a_np[i]
+    a_np_transpose = a_np[np.arange(a_np.shape[0]), np.arange(a_np.shape[1])[:, None]].copy()
 
     return a_np_transpose
