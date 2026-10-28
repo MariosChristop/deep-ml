@@ -1,6 +1,6 @@
-import torch
+import numpy as np
 
-def ones(n: int) -> torch.Tensor:
-    """Return a length-n float vector of ones without calling torch.ones."""
+def ones(n: int) -> np.ndarray:
+    """Return a length-n float vector of ones without calling np.ones."""
     # Your code here
-    return torch.tensor([1]).to(torch.float32).repeat(n)
+    return np.repeat(np.array([1.0]), n)
