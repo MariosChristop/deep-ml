@@ -1,6 +1,6 @@
-import numpy as np
+import torch
 
-def outer(a: np.ndarray, b: np.ndarray) -> np.ndarray:
-    """Outer product of 1-D arrays a and b via broadcasting."""
+def outer(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
+    """Outer product a_i * b_j via broadcasting (no torch.outer)."""
     # Your code here
-    return np.stack([a[i]*b for i in range(a.shape[0])],axis=0)
+    return torch.stack([a[i]*b for i in range(a.shape[0])],axis=0)
