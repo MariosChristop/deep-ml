@@ -1,13 +1,8 @@
-import numpy as np
+import torch
 
-def eye(n: int) -> np.ndarray:
-    """n x n identity matrix without np.eye."""
+def eye(n: int) -> torch.Tensor:
+    """n x n identity via comparisons (no torch.eye)."""
     # Your code here
-    test = np.zeros((n,n), dtype=np.float64)
-    for i in np.arange(n):
-        for j in np.arange(n):
-            if i==j:
-                test[i,j]=1.0
-    if n==1:
-        return [[1.]]
-    return np.float64(test)
+    t = torch.arange(n).unsqueeze(-1)
+    t_T = torch.transpose(t,0,-1)
+    return torch.eq(t,t_T).to(torch.float64)
