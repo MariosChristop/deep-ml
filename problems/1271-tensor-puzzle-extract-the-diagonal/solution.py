@@ -1,7 +1,6 @@
-import numpy as np
+import torch
 
-def diag(A: np.ndarray) -> np.ndarray:
-    """Return the main diagonal of square matrix A."""
+def diag(A: torch.Tensor) -> torch.Tensor:
+    """Extract the main diagonal of square A without torch.diag."""
     # Your code here
-    t_flat = A.flatten()
-    return t_flat[::A.shape[0]+1]
+    return A.flatten()[::A.shape[0]+1]
